@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.loopeer.test.cardstackview"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            //Properties properties = new Properties()
+
+            //FileInputStream fis = new FileInputStream("$project.rootDir/keystore.properties")
+           // properties.load(fis)
+           // fis.close()
+
+           // keyAlias = properties.keyAlias
+            //storeFile = file(properties.storeFile)
+            //storePassword = properties.storePassword
+           // keyPassword = properties.keyPassword
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.loopeer.library:cardstack:1.0.1'
+}
